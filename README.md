@@ -155,6 +155,6 @@ Test the connection by accessing your public IP address.
 ---
 
 Additional Information
-Git Repository: https://github.com/emmatunde/Altschoolpro1
-Tools Used: AWS, Ubuntu, Apache, HTML, Certbot (for HTTPS)
-Author: Emmaneul Abodunrin
+- Git Repository: https://github.com/emmatunde/Altschoolpro1
+- Tools Used: AWS, Ubuntu, Apache, HTML, Certbot (for HTTPS)
+- Author: Emmaneul Abodunrin
