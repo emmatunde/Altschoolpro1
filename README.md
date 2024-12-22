@@ -11,13 +11,15 @@ This project demonstrates the ability to provision a server, configure a web ser
 - **Name**: Emmaneul Abodunrin
 - **Project Title**: Welcome to Emmaneul Abodunrin's Landing Page
 - **Description**: A prototype web application to demonstrate server provisioning, web server configuration, and HTML deployment.
-- **Bio**: I am a passionate tech enthusiast, telecoms engineer, and aspiring Cloud/DevOps Engineer with nearly five years of experience. I aim to make a global impact by solving complex cloud problems.
+- **Bio**: Emmanuel Abodunrin is an Engineer with nearly five years of hand-on
+        experience in the telecom space in both technical and managerial role. I
+        have always had the interest in knowing how websites and phone app are
+        managed...
 
 ---
 
 ## Deliverables
-- **Public IP Address/URL**: 35.176.13.70
-- **Screenshot**: [Insert screenshot link or add it directly to the repository]
+- **Public IP Address**: 35.176.13.70
 
 ---
 
@@ -42,111 +44,115 @@ This project demonstrates the ability to provision a server, configure a web ser
 2. **Install Apache Web Server**:
    ```bash
    sudo apt install apache2 -y
+   sudo systemctl status apache
 3. **Enable Apache Service**:
    ```bash
    sudo systemctl enable apache2
    sudo systemctl start apache2
+4. **Verify the Deployment**:
+Open a web browser and navigate to public IP address below:
 
+      http://35.176.13.70
 ---
 
 ## 3. HTML Page Deployment 
-Create the HTML Page:
+1. **Create the HTML Page**:
    - write an html code with a text editor e.g Virtual Studio Code (VS Code).
    - safe locally as index.html
+   - Add the following content
+   - Save and close the file.
       ```html
-      <!DOCTYPE html>
-      <html lang="en">
-     <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AltschoolPro1</title>
-     </head>
+         <!DOCTYPE html>
+         <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>AltschoolPro1</title>
+        </head>
 
-     <body>
-    <header>
-      <h1>Welcome to Emmaneul Abodunrin's Landing Page</h1>
-    </header>
-      <hr>
-    <div>
-      <p>Student Name: Emmanuel Abodunrin</p>
-      <p>Student ID: ALT/SOE/024/0455</p>
-      <p>Project Title: Welcome to Emmanuel Abodunrin Landing Page</p>
-    </div>
-    <hr />
-    <section>
-      <h2>About the Project</h2>
-      <p>
-        about the project text
-      </p>
-      <hr />
-      <h2>About Me</h2>
-      <p>
-        About me text
-      </p>
-    </section>
-    <hr />
-    <footer>
-      &copy; 2024 Emmaneul Abodunrin. All rights reserved.
-    </footer>
-    </body>
-    </html>
+        <body>
+          <header>
+            <h1>Welcome to Emmaneul Abodunrin's Landing Page</h1>
+          </header>
+            <hr>
+          <div>
+         <p>Student Name: Emmanuel Abodunrin</p>
+         <p>Student ID: ALT/SOE/024/0455</p>
+         <p>Project Title: Welcome to Emmanuel Abodunrin Landing Page</p>
+          </div>
+          <hr />
+          <section>
+          <h2>About the Project</h2>
+         <p>
+           about the project text
+         </p>
+         <hr />
+         <h2>About Me</h2>
+         <p>
+           About me text
+         </p>
+          </section>
+          <hr />
+          <footer>
+            &copy; 2024 Emmaneul Abodunrin. All rights reserved.
+          </footer>
+         </body>
+      </html>
 
-         
-Navigate to the web server directory:
-bash
-Copy code
-cd /var/www/html
-Create an HTML file:
-bash
-Copy code
-sudo nano index.html
-Add the following content:
-html
-Copy code
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Welcome to Abodunrin Emmaneul Olatunde's Landing Page</title>
-</head>
-<body>
-    <h1>Welcome to Abodunrin Emmaneul Olatunde's Landing Page</h1>
-    <p>This is a prototype web application to demonstrate server provisioning, web server configuration, and HTML deployment.</p>
-    <h2>About Me</h2>
-    <p>I am a passionate tech enthusiast, telecoms engineer, and aspiring Cloud/DevOps Engineer with nearly five years of experience. I aim to make a global impact by solving complex cloud problems.</p>
-</body>
-</html>
-Save and close the file.
-Verify the Deployment:
+2. **Git push to repository**:
+   - Create a repository, in this case github was used.
+   - below are the relivant conmmand to push html file to remote repository
+      ```bash git init
+      git init
+      git status
+      git add index.html
+      git commit -m "commit index.html for the first time"
+      git remote add origin https://github.com/emmatunde/Altschoolpro1
+      git romote -v
+      git pull https://github.com/emmatunde/Altschoolpro1
+      git push -f origin main       
+3. **Navigate to the web server directory**:
+      
+         cd /var/www/html
+- clone git repository to your web server
 
-Open a web browser and navigate to your public IP address:
-vbnet
-Copy code
-http://<your-public-ip>
-4. Networking Configuration
+        git clone https://github.com/emmatunde/Altschoolpro1
+        sudo mv Altschoolpro1/* .
+
+- Open a web browser (e.g chrome) and navigate to public IP address below:
+
+      http://35.176.13.70
+
+---
+
+## 4. Networking Configuration
 Allow HTTP Traffic:
 In your AWS Security Group, add a rule to allow HTTP traffic on port 80.
+   `sudo ufw allow 80`
 Verify Connectivity:
 Test the connection by accessing your public IP address.
-Bonus Task: Enabling HTTPS
-Install Certbot:
-bash
-Copy code
-sudo apt install certbot python3-certbot-apache -y
-Obtain a Free SSL Certificate:
-bash
-Copy code
-sudo certbot --apache
-Renew Certificate Automatically:
-bash
-Copy code
-sudo crontab -e
-Add the following line:
-bash
-Copy code
-0 0,12 * * * certbot renew --quiet
+   `sudo ufw status`
+   
+---
 
+## 5. Enabling HTTPS
+1. **Install Certbot**:
+
+         sudo apt install certbot python3-certbot-apache -y
+2. **Obtain a Free SSL Certificate**:
+
+         sudo certbot --apache
+3. **Renew Certificate Automatically**:
+
+         sudo crontab -e
+
+5. **Add the following line**:
+   
+         0 0,12 * * * certbot renew --quiet
+
+---
 
 Additional Information
-Git Repository: [Insert Repository Link Here]
+Git Repository: https://github.com/emmatunde/Altschoolpro1
 Tools Used: AWS, Ubuntu, Apache, HTML, Certbot (for HTTPS)
 Author: Emmaneul Abodunrin
