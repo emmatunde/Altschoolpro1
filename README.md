@@ -20,6 +20,8 @@ This project demonstrates the ability to provision a server, configure a web ser
 
 ## Deliverables
 - **Public IP Address**: 35.176.13.70
+
+  
 ![HTML page for the ](image/html-page-screenshot.png)
 ---
 
