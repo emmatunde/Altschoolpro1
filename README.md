@@ -1,4 +1,4 @@
-# Web Deployment Project
+# Creating a prototype for a web application project
 
 This repository contains the steps and resources for deploying a prototype web application, which includes provisioning a Linux server, setting up a web server, and deploying a simple HTML landing page.
 
@@ -38,21 +38,60 @@ This project demonstrates the ability to provision a server, configure a web ser
 ### 2. Configuring the Server
 1. **Update the Package Index**:
    ```bash
-   sudo apt update && sudo apt upgrade -y
+   sudo apt update
+2. **Install Apache Web Server**:
+   ```bash
+   sudo apt install apache2 -y
+3. **Enable Apache Service**:
+   ```bash
+   sudo systemctl enable apache2
+   sudo systemctl start apache2
 
+---
 
-Install Apache Web Server:
-bash
-Copy code
-sudo apt install apache2 -y
-Enable Apache Service:
-bash
-Copy code
-sudo systemctl enable apache2
-sudo systemctl start apache2
-3. HTML Page Deployment
+## 3. HTML Page Deployment 
 Create the HTML Page:
+   - write an html code with a text editor e.g Virtual Studio Code (VS Code).
+   - safe locally as index.html
+      ```html
+      <!DOCTYPE html>
+      <html lang="en">
+     <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AltschoolPro1</title>
+     </head>
 
+     <body>
+    <header>
+      <h1>Welcome to Emmaneul Abodunrin's Landing Page</h1>
+    </header>
+      <hr>
+    <div>
+      <p>Student Name: Emmanuel Abodunrin</p>
+      <p>Student ID: ALT/SOE/024/0455</p>
+      <p>Project Title: Welcome to Emmanuel Abodunrin Landing Page</p>
+    </div>
+    <hr />
+    <section>
+      <h2>About the Project</h2>
+      <p>
+        about the project text
+      </p>
+      <hr />
+      <h2>About Me</h2>
+      <p>
+        About me text
+      </p>
+    </section>
+    <hr />
+    <footer>
+      &copy; 2024 Emmaneul Abodunrin. All rights reserved.
+    </footer>
+    </body>
+    </html>
+
+         
 Navigate to the web server directory:
 bash
 Copy code
